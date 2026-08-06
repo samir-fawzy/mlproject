@@ -1,5 +1,6 @@
 import sys
-import logging
+from logger import logging 
+
 def _error_message_detail(error: Exception, error_detail: sys) -> str:
     _, _, exc_tb = error_detail.exc_info()
 
@@ -17,11 +18,3 @@ class CustomException(Exception):
 
     def __str__(self):
         return f"CustomException: {self.args[0]} | Error Detail: {self.error_message}"
-
-if __name__ == "__main__":
-    try:
-        # Example code that raises an exception
-        x = 1 / 0
-    except Exception as e:
-        logging.error("An error occurred", exc_info=True)
-        raise CustomException(e, sys)
