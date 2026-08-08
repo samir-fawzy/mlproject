@@ -23,6 +23,11 @@ class DataIngestion:
         self.ingestion_config = DataIngestionConfig()
 
     def initiate_data_ingestion(self) -> Tuple[str,str]:
+        """
+        this function return Tuple of tws str [str,str],
+        first tuple return -> train data path,
+        second tuple return -> test data path.
+        """
         logging.info("Entered the data ingestion method or component")
         try:
             df = pd.read_csv('notebook/data/stud.csv')
@@ -44,16 +49,4 @@ class DataIngestion:
             )
         except Exception as e:
             raise CustomException(e, sys)
-
-if __name__ == "__main__":
-    # 1. Ingestion
-    obj = DataIngestion()
-    train_data, test_data = obj.initiate_data_ingestion()
-
-    # 2. Transformation
-    data_transformation = DataTransformer()
-    train_arr, test_arr, _ = data_transformation.initiate_data_transformer(train_data, test_data)
-
-    # 3. Model Training
-    model_trainer = ModelTrainer()
-    print(model_trainer.initiate_model_trainer(train_arr, test_arr))
+ 

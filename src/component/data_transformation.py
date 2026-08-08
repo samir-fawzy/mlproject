@@ -71,6 +71,11 @@ class DataTransformer:
             raise CustomException(e,sys)
 
     def initiate_data_transformer(self,train_path,test_path):
+        """
+        this function takes train and test data, do preprocessing and prepare it to feed to ML model\n
+        it takes two argument (train path, and test path)\n
+        return 3 values (train arr, test arr, preporcessing file)
+        """
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
