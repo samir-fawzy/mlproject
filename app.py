@@ -50,6 +50,6 @@ def predict_datapoint():
             return render_template('home.html', results="Error: Please check your inputs.")
 
 if __name__ == "__main__":
-    # تجهيز البورت ليعمل محلياً وعلى السيرفرات السحابية بدون مشاكل
+
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True) # debug=True مفيدة أثناء التطوير فقط
+    app.run(host="0.0.0.0", port=port) 
